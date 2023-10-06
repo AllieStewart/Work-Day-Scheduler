@@ -1,7 +1,10 @@
 var pastBlock = $('#past'); //grey
 var presentBlock = $('#present'); //red
 var futureBlock = $('#future'); //green
+
+// The hour class in each div, next to time-block
 var hour = $('.hour');
+var currHour = dayjs().format('H a');
 var inputDesc = $('.description');
 var saveButton = $('.saveBtn');
 var currTimeDisplay = $('#currentDay');
@@ -17,13 +20,15 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  function saveLocal(schedule)
+  saveButton.on("click", function(event)
   {
-    localStorage.setItem('schedule', JSON.stringify(schedule));
-  }
-  pastBlock.on(saveButton, saveLocal);
-  presentBlock.on(saveButton, saveLocal);
-  futureBlock.on(saveButton, saveLocal);
+    event.preventDefault();
+
+    var newDate = $(this).parent().attr("id");
+    var newText = $(this).siblings(inputDesc).val();
+    localStorage.setItem(newDate, newText);
+  });
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -31,18 +36,7 @@ $(function () {
   // current hour in 24-hour time?
   function compareHR()
   {
-    var currHour = dayjs().format('H a');
-
-    //for (var i = 9; i < currHour; i++)
-    //{
-    // $('#hour' of div + i)
-   // }
-
-    // The javascript will need to do this by
-    // adding/removing these classes on each div by comparing the hour in the
-    // id to the current hour. 
-    // Comparing div id='hour-10' to currHour (ex: 11am)
-    // add pastBlock, etc to class of div, append
+    
   }
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -57,9 +51,9 @@ $(function () {
   {
     savedWork = [];
   }
-  var projPastDesc = pastBlock.inputDesc.val();
-  var projPresentDesc = presentBlock.inputDesc.val();
-  var projFutureDesc = futureBlock.inputDesc.val();
+  var projPastDesc = pastBlock.inputDesc.value;
+  var projPresentDesc = presentBlock.inputDesc.value;
+  var projFutureDesc = futureBlock.inputDesc.value;
 
   var newWork = {
     pastInfo: projPastDesc,
