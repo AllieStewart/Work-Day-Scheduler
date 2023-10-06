@@ -27,7 +27,7 @@ $(function () {
     event.preventDefault();
 
     var newDate = $(this).parent().attr("id");
-    var newText = $(this).siblings($('.description')).val();
+    var newText = $(this).siblings('.description').val();
     localStorage.setItem(newDate, newText);
   });
 
@@ -67,8 +67,9 @@ $(function () {
   // attribute of each time-block be used to do this?
   for (var i = 9; i < 18; i++)
 {
-  //var block = $('#hour-' + i);
-  $('#hour .description').val(localStorage.getItem("hour-" + i, $('.description')));
+  var block = $('#hour-' + i);
+  $(block, '.description').val(localStorage.getItem("hour-i"));
+  block.append(block.innerText);
 }
   // TODO: Add code to display the current date in the header of the page.
   function displayTime(){

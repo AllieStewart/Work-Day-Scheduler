@@ -16,6 +16,10 @@ textarea {
   white-space: pre-wrap;
 }
 
+.placeholder {
+  color:#000000;
+}
+
 .time-block {
   border-radius: 15px;
 }
