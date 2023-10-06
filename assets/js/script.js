@@ -68,9 +68,8 @@ $(function () {
   for (var i = 9; i < 18; i++)
 {
   //var block = $('#hour-' + i);
-  $('#hour .description').val(localStorage.getItem("hour-" + i));
+  $('#hour .description').val(localStorage.getItem("hour-" + i, $('.description')));
 }
-  
   // TODO: Add code to display the current date in the header of the page.
   function displayTime(){
     var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
