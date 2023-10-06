@@ -1,13 +1,13 @@
-var pastBlock = $('#past'); //grey
-var presentBlock = $('#present'); //red
-var futureBlock = $('#future'); //green
+//var pastBlock = $('#past'); //grey
+//var presentBlock = $('#present'); //red
+//var futureBlock = $('#future'); //green
 
 var timeBlock = $('.time-block');
 
 // The hour class in each div, next to time-block
 //var hour = $('.hour');
 var currHour = dayjs().format('H a');
-var inputDesc = $('.description');
+//var inputDesc = $('.description');
 var saveButton = $('.saveBtn');
 var currTimeDisplay = $('#currentDay');
 
@@ -27,7 +27,7 @@ $(function () {
     event.preventDefault();
 
     var newDate = $(this).parent().attr("id");
-    var newText = $(this).siblings(inputDesc).val();
+    var newText = $(this).siblings($('.description')).val();
     localStorage.setItem(newDate, newText);
   });
 
@@ -65,31 +65,11 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  // var savedWork = localStorage.getItem('work');
-  // if (savedWork)
-  // {
-  //   savedWork = JSON.parse(savedWork);
-  // }
-  // else
-  // {
-  //   savedWork = [];
-  // }
-  // var projPastDesc = pastBlock.inputDesc.value;
-  // var projPresentDesc = presentBlock.inputDesc.value;
-  // var projFutureDesc = futureBlock.inputDesc.value;
-
-  // var newWork = {
-  //   pastInfo: projPastDesc,
-  //   presentInfo: projPresentDesc,
-  //   futureInfo: projFutureDesc,
-  // }
-
-  // savedWork.push(newWork);
-  // localStorage.setItem('work', JSON.stringify(savedWork));
-
-  // pastBlock.inputDesc.val('');
-  // presentBlock.inputDesc.val('');
-  // futureBlock.inputDesc.val('');
+  for (var i = 9; i < 18; i++)
+{
+  //var block = $('#hour-' + i);
+  $('#hour .description').val(localStorage.getItem("hour-" + i));
+}
   
   // TODO: Add code to display the current date in the header of the page.
   function displayTime(){
