@@ -1,8 +1,3 @@
-//var pastBlock = $('#past'); //grey
-//var presentBlock = $('#present'); //red
-//var futureBlock = $('#future'); //green
-// ^kept for color discretion
-
 // currHurr is current hour, saveButton is the 
 // save button for each block, currTimeDisplay
 // is the time that displays on top of page.
@@ -80,6 +75,7 @@ $(function () {
   $('#hour-17 .description').val(localStorage.getItem('hour17'));
 
   // TODO: Add code to display the current date in the header of the page.
+
   // Displays the current time on the top of the page; updates every second.
   function displayTime(){
     var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
