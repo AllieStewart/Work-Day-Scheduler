@@ -26,7 +26,7 @@ $(function () {
   {
     event.preventDefault();
 
-    var newDate = $(this).parent().attr("id");
+    var newDate = $(this).closest.attr("id").split("-")[1];
     var newText = $(this).siblings('.description').val();
     localStorage.setItem(newDate, newText);
   });
@@ -37,38 +37,38 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  for (var i = 9; i < 18; i++)
+  timeBlock.each(function()
   {
-    var block = $('#hour-' + i);
+    var block = $(this).attr("id").split("-")[1];
 
       if (block < currHour)
       {
-        timeBlock.removeClass("future");
-        timeBlock.removeClass("present");
-        timeBlock.addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
       }
 
       else if (block === currHour)
       {
-        timeBlock.removeClass("past");
-        timeBlock.removeClass("future");
-        timeBlock.addClass("present");
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
       }
 
-      else
+      else if (block > currHour)
       {
-        timeBlock.removeClass("present");
-        timeBlock.removeClass("past");
-        timeBlock.addClass("future");
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
       }
-  }
+  });
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   for (var i = 9; i < 18; i++)
 {
   var block = $('#hour-' + i);
-  $(block, '.description').val(localStorage.getItem("hour-i"));
+  $(block, '.description').val(localStorage.getItem("hour"+ i));
   block.append(block.innerText);
 }
   // TODO: Add code to display the current date in the header of the page.
