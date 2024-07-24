@@ -27,7 +27,8 @@ color scheme.
 ![Alt text](assets/screens/Screen6.png)
 
 ## Usage
-Simply click on the link and watch the magic happen. Link to the website: https://alliestewart.github.io/challenge-5/
+Simply click on the link and watch the magic happen. <br>
+Link to the website: [https://alliestewart.github.io/Work-Day-Scheduler/](https://alliestewart.github.io/Work-Day-Scheduler/)
 
 ## What I Have Learned
 I've learned a lot about using jQuery to make life easier, as well as how
